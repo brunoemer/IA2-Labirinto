@@ -116,7 +116,19 @@ function iniciar() {
 $(document).ready(function() {
     console.log( "ready!" );
     var individuo = new Individuo();
-    individuo.calcularFitness();
+    individuo.gerar();
+    console.info(individuo.sequencia);
+
+    var populacao = new Populacao(50, 10, 10, 10);
+    populacao.gerarPopulacao();
+    populacao.ordenar();
+
+    console.log(populacao.individuos);
+
+
+    // for (var i = 1; i <= 15; i++) {
+    // 	console.info(i + " -- " + gerarRandomico(i, 1));
+    // };
     
 });
 
