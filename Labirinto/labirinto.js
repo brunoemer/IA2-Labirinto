@@ -31,15 +31,37 @@ function Labirinto() {
 	this.esquerda = '11';
 	
 	this.validaMovimento = function(posicao, movimento) {
+		var valido = 0;
 		
-		if(movimento == this.baixo) {
-			
-		} else if(movimento == this.cima) {
-			
-		} else if(movimento == this.direita) {
-			
-		} else if(movimento == this.esquerda) {
-			
+		console.info(posicao+" - "+movimento+" - "+parseInt(posicao / this.tamanho));
+		
+		if(parseInt(posicao / this.tamanho) == 0) { //linha 1
+			if(movimento == this.cima) {
+				valido = 2;
+			}
+		} else if(parseInt(posicao / this.tamanho) == this.tamanho-1) { //ultima linha
+			if(movimento == this.baixo) {
+				valido = 2;
+			}
+		} else if(posicao % this.tamanho == 0) { //coluna esquerda
+			if(movimento == this.esquerda) {
+				valido = 2;
+			}
+		} else if(posicao % this.tamanho == this.tamanho-1) { //coluna direita
+			if(movimento == this.direita) {
+				valido = 2;
+			}
 		}
+		if(valido > 0) {
+			return valido;
+		}
+		
+		var pos = this.labirinto[posicao];
+		if($.inArray(movimento, pos) == -1){
+			valido = 1;
+		}
+		
+		return valido;
+		
 	};
 }
