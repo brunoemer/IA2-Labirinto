@@ -115,6 +115,9 @@ function iniciar() {
 
 $(document).ready(function() {
     console.log( "ready!" );
+    var individuo = new Individuo();
+    individuo.calcularFitness();
+    
 });
 
 
