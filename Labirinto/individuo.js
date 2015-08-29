@@ -5,7 +5,20 @@ function Individuo() {
 	this.posicaoAtual = 0;
 	
 	this.calcularFitness = function() {
-		return gerarRandomico(1000, 0);
+//		return gerarRandomico(1000, 0);
+		var movimentos = [];
+		movimentos.push(this.sequencia.substr(0,2));
+		movimentos.push(this.sequencia.substr(2,2));
+		movimentos.push(this.sequencia.substr(4,2));
+		movimentos.push(this.sequencia.substr(6,2));
+		
+		var lab = new Labirinto();
+		var valorFitness = 0;
+		for (var i = 0; i < 4; i++) {
+			valorFitness += lab.validaMovimento(this.posicaoAtual, movimentos[i]);
+		}
+		console.info(valorFitness);
+		this.fitness = valorFitness; 
 	};
 	
 	this.mutacao = function() {

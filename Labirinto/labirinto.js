@@ -40,22 +40,22 @@ function Labirinto() {
 		var valido = 0;
 
 		if(posicao % this.tamanho == 0) { //coluna esquerda
-			console.info(3);
+//			console.info(3);
 			if(movimento == this.esquerda) {
 				valido = 2;
 			}
 		} else if(posicao % this.tamanho == this.tamanho-1) { //coluna direita
-			console.info(4);
+//			console.info(4);
 			if(movimento == this.direita) {
 				valido = 2;
 			}
 		} else if(parseInt(posicao / this.tamanho) == 0) { //linha 1
-			console.info(1);
+//			console.info(1);
 			if(movimento == this.cima) {
 				valido = 2;
 			}
 		} else if(parseInt(posicao / this.tamanho) == this.tamanho-1) { //ultima linha
-			console.info(2);
+//			console.info(2);
 			if(movimento == this.baixo) {
 				valido = 2;
 			}
@@ -69,11 +69,8 @@ function Labirinto() {
 		if($.inArray(movimento, pos) == -1){
 			valido = 1;
 		}
-		
 		//console.info(posicao+" - "+movimento+" - "+valido);
-		
 		return valido;
-		
 	};
 }
 

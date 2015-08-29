@@ -16,13 +16,14 @@ function Algoritmo() {
     		populacao.elitismo();
     		populacao.ordenar();
     		var objetivo = populacao.objetivo();
-    		console.info(objetivo);
+//    		console.info(objetivo);
     		if (objetivo.achou) {
     			alert(objetivo.individuo.sequencia);
     			break;
     		}
     		if (this.interacoes > this.numeroMaximoInteracoes) {
     			alert("Nao achou");
+    			console.info(populacao);
     			break;
     		}
     		this.interacoes++;
