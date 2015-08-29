@@ -3,22 +3,28 @@ function Individuo() {
 	this.sequencia;
 	this.movimentosPossiveis = ["00", "01", "10", "11"];
 	this.posicaoAtual = 0;
+	this.lab = new Labirinto();
 	
 	this.calcularFitness = function() {
-//		return gerarRandomico(1000, 0);
-		var movimentos = [];
-		movimentos.push(this.sequencia.substr(0,2));
-		movimentos.push(this.sequencia.substr(2,2));
-		movimentos.push(this.sequencia.substr(4,2));
-		movimentos.push(this.sequencia.substr(6,2));
+//		this.fitness = gerarRandomico(1000, 0);
+//		return;
 		
-		var lab = new Labirinto();
-		var valorFitness = 0;
-		for (var i = 0; i < 4; i++) {
-			valorFitness += lab.validaMovimento(this.posicaoAtual, movimentos[i]);
-		}
-		console.info(valorFitness);
-		this.fitness = valorFitness; 
+//		var movimentos = [];
+//		movimentos.push(this.sequencia.substr(0,2));
+//		movimentos.push(this.sequencia.substr(2,2));
+//		movimentos.push(this.sequencia.substr(4,2));
+//		movimentos.push(this.sequencia.substr(6,2));
+//		
+//		var lab = new Labirinto();
+//		var valorFitness = 0;
+//		for (var i = 0; i < 4; i++) {
+//			valorFitness += lab.validaMovimento(this.posicaoAtual, movimentos[i]);
+//		}
+//		console.info(valorFitness);
+//		this.fitness = valorFitness;
+		
+		this.fitness = this.lab.calcularFitness(this.sequencia);
+		console.log(this.sequencia + " = " + this.fitness);
 	};
 	
 	this.mutacao = function() {

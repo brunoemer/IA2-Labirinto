@@ -119,13 +119,13 @@ function iniciar2() {
 }
 
 $(document).ready(function() {
-    console.log( "ready!" );
-    var individuo = new Individuo();
-    individuo.gerar();
-    console.info(individuo.sequencia);
-
-
-    console.log(populacao.individuos);
+//    console.log( "ready!" );
+//    var individuo = new Individuo();
+//    individuo.gerar();
+//    console.info(individuo.sequencia);
+//
+//
+//    console.log(populacao.individuos);
 
 
     // for (var i = 1; i <= 15; i++) {
