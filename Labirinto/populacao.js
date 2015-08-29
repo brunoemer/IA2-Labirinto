@@ -88,8 +88,10 @@ function Populacao(tamanhoPopulacao, taxaMutacao, taxaCrossOver, taxaElitismo, p
 	}
 	
 	this.elitismo = function() {
+		var count = 0;
 		for (i = (this.tamanhoPopulacao * this.taxaElitismo); i < this.tamanhoPopulacao; i++) {
-    		this.individuos[i] = this.individuosCopiaParaElitismo[i];
+    		this.individuos[i] = this.individuosCopiaParaElitismo[count];
+    		count++;
     	}
 	}
 	

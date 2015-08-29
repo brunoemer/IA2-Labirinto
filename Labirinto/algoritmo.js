@@ -21,9 +21,6 @@ function Algoritmo() {
     			alert(objetivo.individuo.sequencia);
     			break;
     		}
-    	
-//    		console.info(populacao.totalMutados);
-//    		break;
     		if (this.interacoes > this.numeroMaximoInteracoes) {
     			alert("Nao achou");
     			break;
