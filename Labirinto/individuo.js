@@ -21,4 +21,9 @@ function Individuo() {
 		};
 		this.fitness = this.calcularFitness();
 	}
+	
+	this.setar = function(sequencia) {
+		this.sequencia = sequencia;
+		this.fitness = this.calcularFitness();
+	}
 }

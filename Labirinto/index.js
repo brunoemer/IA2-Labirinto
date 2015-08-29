@@ -9,6 +9,11 @@ var tamanho = 35;
 var populacao = 2000;
 
 function iniciar() {
+	var algoritmo = new Algoritmo();
+	algoritmo.calcular();
+}
+
+function iniciar2() {
 	$("#res").html("");
 	nroCortes = $("#pontosCorte").val();
 	taxaMutacao = $("#taxaMutacao").val();
@@ -119,9 +124,6 @@ $(document).ready(function() {
     individuo.gerar();
     console.info(individuo.sequencia);
 
-    var populacao = new Populacao(50, 10, 10, 10);
-    populacao.gerarPopulacao();
-    populacao.ordenar();
 
     console.log(populacao.individuos);
 
