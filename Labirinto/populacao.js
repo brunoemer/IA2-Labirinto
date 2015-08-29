@@ -71,9 +71,7 @@ function Populacao(tamanhoPopulacao, taxaMutacao, taxaCrossOver, taxaElitismo, p
 			this.mutacao(i, individuo2);
 			this.individuos[countIndividuos] = individuo2;
 			countIndividuos++;
-			
 		}
-		
 		this.ordenar();
 	}
 	
