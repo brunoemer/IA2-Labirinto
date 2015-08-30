@@ -30,6 +30,7 @@ function iniciar() {
 			var posicao = lab.move(mv);
 			casas.push(posicao);
 		}
+		html += "</ol>";
 		html += "<b>Nº passos: " + resultado.passos + "</b>";
 		html += "<br/><b>Tempo: " + ((fim - inicio)/1000) + " (s)</b>";
 		$("#textoResultado").html(html);
