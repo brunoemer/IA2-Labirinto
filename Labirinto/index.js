@@ -21,7 +21,8 @@ function iniciar() {
 		
 		}
 		
-		html += "</ol>";
+		html += "</ol>" +
+				"Gerado "+algoritmo.interacoes+" gerações para encontrar resultado";
 		$("#textoResultado").html(html);
 	} else {
 		$("#resultado").removeClass("hide");
