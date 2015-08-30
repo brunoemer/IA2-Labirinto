@@ -33,8 +33,28 @@
     margin-top: 0;
 }
 
-.table-res td {
-	width: 20px;
-	height: 20px;
+.table-res {
 	border: 1px solid #000;
+}
+
+.table-res td {
+	width: 30px;
+	height: 30px;
+	text-align:center;	
+}
+
+.border-top {
+	border-top: 1px solid #000;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #000;
+}
+
+.border-left {
+	border-left: 1px solid #000;
+}
+
+.border-right {
+	border-right: 1px solid #000; 
 }
