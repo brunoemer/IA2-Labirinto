@@ -1,6 +1,6 @@
 function Algoritmo() {
 	this.achou = false;
-	this.numeroMaximoInteracoes = 100;
+	this.numeroMaximoInteracoes = 10;
 	this.interacoes = 0;
 
 	this.calcular = function() {
@@ -18,7 +18,8 @@ function Algoritmo() {
     		var objetivo = populacao.objetivo();
 //    		console.info(objetivo);
     		if (objetivo.achou) {
-    			alert(objetivo.individuo.sequencia);
+    			console.info("Resultado");
+    			console.dir(objetivo.individuo);
     			break;
     		}
     		if (this.interacoes > this.numeroMaximoInteracoes) {

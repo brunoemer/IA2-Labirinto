@@ -8,23 +8,8 @@ function Individuo() {
 	this.calcularFitness = function() {
 //		this.fitness = gerarRandomico(1000, 0);
 //		return;
-		
-//		var movimentos = [];
-//		movimentos.push(this.sequencia.substr(0,2));
-//		movimentos.push(this.sequencia.substr(2,2));
-//		movimentos.push(this.sequencia.substr(4,2));
-//		movimentos.push(this.sequencia.substr(6,2));
-//		
-//		var lab = new Labirinto();
-//		var valorFitness = 0;
-//		for (var i = 0; i < 4; i++) {
-//			valorFitness += lab.validaMovimento(this.posicaoAtual, movimentos[i]);
-//		}
-//		console.info(valorFitness);
-//		this.fitness = valorFitness;
-		
+		this.lab.posicao = 0;
 		this.fitness = this.lab.calcularFitness(this.sequencia);
-		console.log(this.sequencia + " = " + this.fitness);
 	};
 	
 	this.mutacao = function() {
@@ -38,11 +23,11 @@ function Individuo() {
 		for (var i = 0; i < 8; i++) {
 			this.sequencia = this.sequencia + this.movimentosPossiveis[gerarRandomico(4, 0)];
 		};
-		this.fitness = this.calcularFitness();
+		this.calcularFitness();
 	}
 	
 	this.setar = function(sequencia) {
 		this.sequencia = sequencia;
-		this.fitness = this.calcularFitness();
+		this.calcularFitness();
 	}
 }

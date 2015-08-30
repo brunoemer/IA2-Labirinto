@@ -39,36 +39,41 @@ function Labirinto() {
 	*/
 	this.validaMovimento = function(posicao, movimento) {
 		var valido = 0;
-
 		if(posicao % this.tamanho == 0) { //coluna esquerda
 			if(movimento == this.esquerda) {
-				valido = 2;
+				valido = 10;
 			}
 		} else if(posicao % this.tamanho == this.tamanho-1) { //coluna direita
 			if(movimento == this.direita) {
-				valido = 2;
+				valido = 10;
 			}
 		} else if(parseInt(posicao / this.tamanho) == 0) { //linha 1
 			if(movimento == this.cima) {
-				valido = 2;
+				valido = 10;
 			}
 		} else if(parseInt(posicao / this.tamanho) == this.tamanho-1) { //ultima linha
 			if(movimento == this.baixo) {
-				valido = 2;
+				valido = 10;
 			}
 		}
 		if(valido > 0) {
 			return valido;
 		}
-		
 		var pos = this.labirinto[posicao];
+		if (typeof pos == "undefined") {
+			return 15;
+		}
 		if($.inArray(movimento, pos) == -1){
-			valido = 1;
+			valido = 5;
 		}
 		return valido;
 	};
 	
 	this.calculaDistanciaFinal = function(ultimaPosicao) {
+//		console.log("Ultima pos " + ultimaPosicao);
+		if (ultimaPosicao > (this.tamanho * this.tamanho)) {
+			return 50;
+		}
 		var linha = this.tamanho - 1 - parseInt(ultimaPosicao / this.tamanho);
 		var coluna = this.tamanho - 1 - (ultimaPosicao % this.tamanho);
 		return linha + coluna;
@@ -90,20 +95,27 @@ function Labirinto() {
 	this.calcularFitness = function(movimentos) {
 		var fitness = 0;
 		var f;
+		var pos = 0;
 		for(var i = 0; i < movimentos.length; i=i+2){
 			var mv = movimentos.substring(i, i+2);
-			var pos = this.move(mv);
-			
 			f = this.validaMovimento(pos, mv);
+//			console.log("AQUI " + f);
+			if (f == 0) {
+				pos = this.move(mv);
+			}
+//			console.log("POS " + pos);
+			
 			fitness += f;
-//			console.info(mv + " - " + pos + " - "+f	);
 		}
+//		console.log("Fitness " + fitness);
 		f = this.calculaDistanciaFinal(pos);
+//		console.log("Fitness 2 " + f);	
 		fitness += f;
 		if(f == 0) {
+//			console.log("Fitness 3  " + f);	
 			return f;
 		}
-
+//		console.log("Fitness Final " + fitness);
 		return fitness;
 	};
 }
