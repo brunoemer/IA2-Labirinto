@@ -70,7 +70,6 @@ function Labirinto() {
 	};
 	
 	this.calculaDistanciaFinal = function(ultimaPosicao) {
-//		console.log("Ultima pos " + ultimaPosicao);
 		if (ultimaPosicao > (this.tamanho * this.tamanho)) {
 			return 50;
 		}
@@ -99,23 +98,17 @@ function Labirinto() {
 		for(var i = 0; i < movimentos.length; i=i+2){
 			var mv = movimentos.substring(i, i+2);
 			f = this.validaMovimento(pos, mv);
-//			console.log("AQUI " + f);
 			if (f == 0) {
 				pos = this.move(mv);
 			}
-//			console.log("POS " + pos);
 			
 			fitness += f;
 		}
-//		console.log("Fitness " + fitness);
 		f = this.calculaDistanciaFinal(pos);
-//		console.log("Fitness 2 " + f);	
 		fitness += f;
 		if(f == 0) {
-//			console.log("Fitness 3  " + f);	
 			return f;
 		}
-//		console.log("Fitness Final " + fitness);
 		return fitness;
 	};
 }

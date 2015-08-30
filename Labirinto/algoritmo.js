@@ -1,6 +1,6 @@
 function Algoritmo() {
 	this.achou = false;
-	this.numeroMaximoInteracoes = 10;
+	this.numeroMaximoInteracoes = 1000;
 	this.interacoes = 0;
 
 	this.calcular = function() {
