@@ -19,13 +19,11 @@ function Algoritmo() {
 //    		console.info(objetivo);
     		if (objetivo.achou) {
     			console.info("Resultado");
-    			console.dir(objetivo.individuo);
-    			break;
+    			console.log(objetivo.individuo);
+    			return {"achou" : true, "individuo" :objetivo.individuo};
     		}
     		if (this.interacoes > this.numeroMaximoInteracoes) {
-    			alert("Nao achou");
-    			console.info(populacao);
-    			break;
+    			return {"achou" : false};
     		}
     		this.interacoes++;
     	}

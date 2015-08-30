@@ -3,40 +3,106 @@
 
 <head>
 	<title>Labirinto</title>
-	<meta charset="UTF-8">
-
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="estilo/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="estilo/bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="estilo/estilo.css">
 </head>
-<body>
-	<h1>Labirinto</h1>
+<body style="background-color:#EEE;">
+	<div class="container">
+		<center>
+			<h1>Labirinto</h1>
+			<h4>Algoritmo Genético</h2>
+		</center>
 
-	<p>População</p>
-	<input type="text" id="populacao" value="200">
+		<br/>
+		
+		<div class="row">
+		  	<div class="col-md-2">
+				<label>População</label>
+				<input type="text" id="populacao" value="200" class="form-control" />
+			</div>
+			<div class="col-md-2">
+				<label>Taxa de Mutação</label>
+				<input type="text" id="taxaMutacao" value="0.25" class="form-control" />
+			</div>
+			<div class="col-md-2">
+				<label>Taxa de CrossOver</label>
+				<input type="text" id="taxaCrossOver" value="0.60" class="form-control" />
+			</div>
+			<div class="col-md-2">
+				<label>Taxa de Elitismo</label>
+				<input type="text" id="taxaElitismo" value="0.1" class="form-control" />
+			</div>
+		  	<div class="col-md-2">
+				<label>Pontos de corte</label>
+				<select id="pontosCorte" class="form-control">
+					<option value="1" selected="true">1</option>
+					<option value="2">2</option>
+				</select>
+			</div>
+		</div>
 
-	<p>Taxa de Mutação</p>
-	<input type="text" id="taxaMutacao" value="0.25">
-
-	<p>Taxa de CrossOver</p>
-	<input type="text" id="taxaCrossOver" value="0.60">
-	
-	<p>Taxa de Elitismo</p>
-	<input type="text" id="taxaElitismo" value="0.1">
-	
-	<p>Pontos de corte</p>
-	<select id="pontosCorte">
-		<option value="1" selected="true">1</option>
-		<option value="2">2</option>
-	</select>
-
-	<br/>
-	<br/>
-	<input type="button" onclick="iniciar()" value="Calcular caminhos labirinto">
-
-	<div id="res">
-
+		<br/>
+		<div class="row">
+		  	<div class="col-md-3">
+				<input type="button" onclick="iniciar()" value="Calcular caminhos labirinto" class="form-control btn btn-primary">
+			</div>
+		</div>
+		<div id="resultado" class="bs-callout bs-callout-info hide row">
+		    <h4>Resultado</h4>
+		    <div class="col-md-7">
+			    <p id="textoResultado"></p>
+			</div>
+			<div class="col-md-5">
+				<table class="table-res">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 
+<!-- Latest compiled and minified JavaScript -->
 <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="estilo/bootstrap/js/bootstrap.min.js"></script>
+
 <script type="text/javascript" src="index.js"></script>
 <script type="text/javascript" src="individuo.js"></script>
 <script type="text/javascript" src="functions.js"></script>
