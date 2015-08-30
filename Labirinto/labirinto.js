@@ -31,12 +31,6 @@ function Labirinto() {
 	this.direita = '10';
 	this.esquerda = '11';
 	
-	/*
-		Retorna:
-		0 para valido
-		-1 quando atravessar parede
-		-2 quando sair do labirinto
-	*/
 	this.validaMovimento = function(posicao, movimento) {
 		var valido = 0;
 		if(posicao % this.tamanho == 0) { //coluna esquerda
@@ -112,12 +106,3 @@ function Labirinto() {
 		return fitness;
 	};
 }
-
-$(document).ready(function() {
-//	var lab = new Labirinto();
-//	lab.calcularFitness('1000100010001000');
-	//lab.validaMovimento(10, '10');
-	//lab.validaMovimento(4, '11');
-	//lab.validaMovimento(2, '00');
-	//lab.validaMovimento(21, '01');
-});
