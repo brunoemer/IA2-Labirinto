@@ -5,9 +5,6 @@
 	min-height:600px;
 }
 
-.bs-callout + .bs-callout {
-    margin-top: -5px;
-}
 .bs-callout-info {
     border-left-color: #1b809e;
 }
