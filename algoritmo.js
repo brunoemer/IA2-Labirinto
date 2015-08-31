@@ -8,7 +8,7 @@ function Algoritmo() {
     	populacao.gerarPopulacao();
     	populacao.ordenar();
 
-    	this.interacoes = 0;
+    	this.interacoes = 1;
     	while (!this.achou) {
     		populacao.ordenar();
     		populacao.calcularNovosCromossomos();
