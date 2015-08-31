@@ -56,10 +56,29 @@ function Populacao(tamanhoPopulacao, taxaMutacao, taxaCrossOver, taxaElitismo, p
 				}
 			}
 
-			var pontoCorte = gerarRandomico(( this.individuosCrossOver[pos].sequencia.length -1), 1);
-			var novoFilho1 = this.individuosCrossOver[pos].sequencia.substr(0, pontoCorte)  +  this.individuosCrossOver[pos2].sequencia.substr(pontoCorte);
-			var novoFilho2 = this.individuosCrossOver[pos2].sequencia.substr(0, pontoCorte) +  this.individuosCrossOver[pos].sequencia.substr(pontoCorte);
-			
+			if(this.pontosCorte == 1) {
+				var pontoCorte = gerarRandomico(( this.individuosCrossOver[pos].sequencia.length -1), 1);
+				var novoFilho1 = this.individuosCrossOver[pos].sequencia.substr(0, pontoCorte)  +  this.individuosCrossOver[pos2].sequencia.substr(pontoCorte);
+				var novoFilho2 = this.individuosCrossOver[pos2].sequencia.substr(0, pontoCorte) +  this.individuosCrossOver[pos].sequencia.substr(pontoCorte);
+			} else {
+				var filho1 = this.individuosCrossOver[pos].sequencia;
+				var filho2 = this.individuosCrossOver[pos2].sequencia;
+				var valido = false;
+				while (!valido) {
+					pontoCorte = gerarRandomico(( filho1.length -1), 1);
+					pontoCorte1 = gerarRandomico(( filho1.length -1), 1);
+					if (pontoCorte < pontoCorte1) {
+						valido = true;
+					}
+				}
+				
+				var novoFilho1 = filho1.substr(0, pontoCorte) + filho2.substr(pontoCorte, (pontoCorte1 - pontoCorte)) + 
+					filho1.substr(pontoCorte1);
+				var novoFilho2 = filho2.substr(0, pontoCorte) + filho1.substr(pontoCorte, (pontoCorte1 - pontoCorte)) + 
+					filho2.substr(pontoCorte1);
+				
+			}
+
 			var individuo1 = new Individuo();
 			individuo1.setar(novoFilho1);
 			this.mutacao(i, individuo1);
