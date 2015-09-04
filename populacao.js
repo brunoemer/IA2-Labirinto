@@ -55,7 +55,25 @@ function Populacao(tamanhoPopulacao, taxaMutacao, taxaCrossOver, taxaElitismo, p
 					igual = false;
 				}
 			}
+			igual = true;
+			while (igual) {
+				var pos3 = gerarRandomico(limiteSuperior, 0);
+				if (pos3 != pos && pos3 != pos2) {
+					igual = false;
+				}
+			}
 
+			//Seleção por torneio
+			if (this.individuosCrossOver[pos].fitness > this.individuosCrossOver[pos2].fitness) {
+				if (this.individuosCrossOver[pos3].fitness > this.individuosCrossOver[pos2].fitness) {
+					pos2 = pos3;
+				} 
+			} else {
+				if (this.individuosCrossOver[pos3].fitness > this.individuosCrossOver[pos].fitness) {
+					pos = pos3;
+				}
+			}
+			
 			if(this.pontosCorte == 1) {
 				var pontoCorte = gerarRandomico(( this.individuosCrossOver[pos].sequencia.length -1), 1);
 				var novoFilho1 = this.individuosCrossOver[pos].sequencia.substr(0, pontoCorte)  +  this.individuosCrossOver[pos2].sequencia.substr(pontoCorte);
